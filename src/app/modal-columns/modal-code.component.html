@@ -1,0 +1,69 @@
+<div mat-dialog-content class="modal-container">
+      <ng-container *ngIf="loadedData ;else userLoggedOut" 
+        >
+        <form [formGroup]="sheetForm" (ngSubmit)="getColumns(data)" *ngIf="!loadedColumns && !loadingColumns">
+        <p>Sheet name: {{data.name}}</p>
+
+          <mat-form-field >
+            <mat-label>Sheet Page</mat-label>
+            <mat-select formControlName="sheetPage" required>
+              <mat-option  *ngFor="let message of preSheetData.message" [value]="message">
+                {{message}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button type="submit" class="getColumns" [disabled]="!sheetForm.value.sheetPage">See Columns</button>
+      </form>
+      <ng-container *ngIf="loadedColumns" >
+        <p>Columns found on table: {{data.name}}</p>
+        <form class="example-form" [formGroup]="columnsByRowForm" (ngSubmit)="getColumnsByRow()">
+        <p style="display: flex; align-items: center;">incorrect columns? <mat-icon matTooltip="To correctly identify the columns, you must ensure that there is no data present in the same row as the columns." style="margin-left: 0.5vh; font-size: 16px; height: auto;">info</mat-icon></p> 
+          <mat-form-field class="example-full-width">
+            <mat-label>Row that contains columns names</mat-label>
+            <input matInput formControlName="rowOnSheet" type="number" placeholder="Row position Ex. 1">
+          </mat-form-field >
+          <button mat-raised-button type="submit" class="getColumns" [disabled]="!columnsByRowForm.value.rowOnSheet">Get Columns</button>
+
+        </form>
+        <ng-container *ngIf="foundColumns">
+            <table mat-table class="mat-elevation-z8" [dataSource]="columns">
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> ColumnPosition </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element">{{(element.columnName.length>17)? (element.columnName | slice:0:20)+'...':(element.columnName)}}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="required field">
+                <th mat-header-cell *matHeaderCellDef> Required </th>
+                <td mat-cell *matCellDef="let element" > <mat-checkbox [checked]="element.required" (change)="valueChange(element,$event)">                             
+                  </mat-checkbox></td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            <button mat-raised-button color="primary" style="margin-top: 2vh" [disabled]="!foundColumns" (click)="generateCode()">GENERATE CODE</button>
+          </ng-container>
+      </ng-container>
+      <ng-container *ngIf="!loadedColumns && loadingColumns">
+        <p></p>
+        <mat-spinner></mat-spinner>
+      </ng-container>
+    </ng-container>
+    
+      
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
+
+<ng-template #userLoggedOut>
+  <mat-spinner></mat-spinner>
+</ng-template>
+

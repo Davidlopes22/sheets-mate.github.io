@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Sheets</h1>
+<div mat-dialog-content class="image-grid">
+  <div *ngFor="let item of columns" class="image-container">
+    <mat-card (click)="openDialog(item)" class="card" >
+      <mat-card-content>
+        <mat-card-title> {{(item.name.length>17)? (item.name | slice:0:20)+'...':(item.name)}}</mat-card-title>
+        <mat-card-subtitle> {{(item.id.length>17)? (item.id | slice:0:20)+'...':(item.id)}} </mat-card-subtitle>
+        
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
+

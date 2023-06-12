@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
+    width: 400px;
+    text-align: center !important;
+
+    background-color: #C0DBEA;
+    border: 2px solid #06bf3d;
+    border-radius: 3%;
+    
+  }
+  
+  .image {
+    width: 100%;
+    border-radius: 3%;
+
+  }
+  
+  .mat-card-content {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+

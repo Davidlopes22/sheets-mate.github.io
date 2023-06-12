@@ -1,0 +1,71 @@
+
+  ::ng-deep.modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .textbox-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  input[type="text"] {
+    width: 80%;
+    padding: 10px;
+  }
+  .mat-table {
+    overflow-x: scroll;
+    max-width: 99%;
+  }
+  
+  .mat-cell,
+  .mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 0px 10px;
+    line-break: unset;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  
+  .mat-row,
+  .mat-header-row {
+    display: table-row;
+  }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: green !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: green !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: green !important;
+  }
+  ::ng-deep.getColumns{
+    color: green !important;
+    height: 100%;
+    margin-left: 1vh;
+    padding: 0.5vh;
+  }
+  ::ng-deep.mat-tooltip{
+    font-size: 20px;
+  }
+  ::ng-deep.red-snackbar {
+    
+    background: #F44336;
+    color: white;
+    font-weight: bold;
+}
