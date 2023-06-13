@@ -8,12 +8,4 @@
   justify-content: space-between;
   align-items: center;
   height: 3vh;
-  a.linkHome {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-
-  }
 }
