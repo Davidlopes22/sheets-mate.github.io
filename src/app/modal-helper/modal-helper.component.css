@@ -1,0 +1,5 @@
+::ng-deep.mat-dialog-container{
+    overflow: auto;
+    max-height: 55vh;
+    white-space: pre-wrap;
+}

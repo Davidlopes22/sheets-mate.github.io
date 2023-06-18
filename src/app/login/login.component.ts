@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   private subscription: Subscription = Subscription.EMPTY;
 
   ngOnInit() {
-    console.log('INIT LOGIN');
     this.subscription = this.userService.auth();
   }
 

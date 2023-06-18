@@ -9,3 +9,6 @@
   align-items: center;
   height: 3vh;
 }
+::ng-deep.mat-tooltip{
+  font-size: 16px;
+}

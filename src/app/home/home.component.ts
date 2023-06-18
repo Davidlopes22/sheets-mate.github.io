@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit {
   }
   //chamar backend e pegar os dados
   ngOnInit() {
-    console.log('STARTOU A HOME(POS LOGIN)');
   }
   myFunc() {
     this.userService.signOut();

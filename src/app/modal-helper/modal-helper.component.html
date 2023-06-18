@@ -1,0 +1,113 @@
+<ng-container class="modal-helper">
+    <h3>Importante lembrar que nos métodos de inserção os campos setados como requeridos não podem ser vazios.</h3>
+    <h4>Já nas atualizações não é necessário passar os campos requeridos, já que serão mantidos os existentes caso não sejam passados no corpo da requisição.</h4>
+
+    <h3>Get Methods:</h3>
+    <ul>
+    <li><p><strong>deleteOne:</strong> filtro para encontrar qual dado irá ser excluído deve ser passado como ReqParam</p>
+
+    <p>Ex:<br>
+        Tabela com uma coluna chamada name<br></p>
+    <pre><code  [highlight]="urlDeleteOneSingleParameter" [languages]="['json']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+
+    <p>Caso tenha mais colunas e queira utilizar as colunas como parâmetros de busca é só adicionar nos reqParams<br></p>
+    <pre><code  [highlight]="urlDeleteOne" [languages]="['json']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+
+    <p>Esse endpoint só permite a deleção de uma linha, caso sejam encontradas mais entradas, retornará uma mensagem avisando.</p>
+</li>
+<li>
+    <p><strong>deleteMultipleRows:</strong> filtro para encontrar qual dado irá ser excluído deve ser passado como ReqParam</p>
+    <p>Mesmo funcionamento do deleteOne, com a diferença que pode realizar a deleção de múltiplas linhas.</p>
+</li>
+<li>
+    <p><strong>getAll:</strong> Retornará todas as linhas da tabela.</p>
+</li>
+<li>
+    <p><strong>getXPTO(NomeDaPagina):</strong> passe os filtros por reqParam para buscar os dados desejados.</p>
+</li>
+</ul>
+    <h3>Post Methods:</h3>
+    <ul>
+    <li>
+    <p><strong>singleInsertOnXPTO(NomeDaPagina):</strong> Passe os dados para serem inseridos no corpo da requisição(JSON)</p>
+    <p>Ex:<br>
+        Tabela com 3 colunas: id, name, age<br>
+        
+        <br>
+    <pre><code  [highlight]="urlSingleInsert" [languages]="['html']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+
+        O corpo da requisição deve ser passado da seguinte maneira:<br>
+    <pre><code  [highlight]="jsonCodeInsert" [languages]="['json']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+
+    <p>Lembrando que o nome dos atributos devem bater com os nomes das colunas.</p>
+    </li>  
+    <li>
+    <p><strong>multipleInsertOnXPTO(NomeDaPagina):</strong> Passe os dados para serem inseridos no corpo da requisição(JSON)</p>
+    <pre><code  [highlight]="urlMultipleInsert" [languages]="['html']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+
+    <p>
+        Útil para realizar múltiplas inserções de uma vez.</p>
+    <p>Ex:<br>
+
+        <pre><code  [highlight]="jsonCodeMultipleInsert" [languages]="['json']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+    </li>
+    <li>
+    <p><strong>updateByquery:</strong> Tem a finalidade de atualizar os dados na tabela, passe os filtros como reqParams, mesma forma apresentada nos métodos get e delete.</p>
+    <pre><code  [highlight]="urlUpdateByQuery" [languages]="['json']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+
+    <p>No corpo da requisição, passe os novos valores dos atributos:<br>
+
+    <pre><code  [highlight]="jsonCodeUpdateExample" [languages]="['json']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+
+    <p>Se encontrar X entradas, atualizará os valores nas X entradas.</p>
+    <table mat-table [dataSource]="firstTable" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+    <p>Utilizando os exemplos acima, a tabela ficaria assim:</p>
+    <table mat-table [dataSource]="secondTable" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef> Age </th>
+          <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </li>   
+    <li>
+    <p><strong>updateOneByquery:</strong> Mesmo funcionamento do método anterior, mas dessa vez só irá atualizar se encontrar apenas uma entrada com os filtros passados.</p>
+    </li>
+</ul>
+</ng-container>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Fechar</button>
+  </div>    
+

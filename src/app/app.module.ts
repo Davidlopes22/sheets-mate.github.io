@@ -32,17 +32,16 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {HeaderComponent} from './header/header.component'
+import {HeaderComponent} from './header/header.component';
+import { ModalHelperComponent } from './modal-helper/modal-helper.component'
 const googleLoginOptions: GoogleInitOptions = {
   oneTapEnabled: false, // default is true
   scopes: [
-    'https://www.googleapis.com/auth/spreadsheets',
-    'https://www.googleapis.com/auth/spreadsheets.readonly',
-    'https://www.googleapis.com/auth/drive.readonly',
+    'https://www.googleapis.com/auth/spreadsheets.readonly'
   ],
 };
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, ModalSheetsComponent, ModalCodeComponent, ModalCodeGeneratedComponent,HeaderComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, ModalSheetsComponent, ModalCodeComponent, ModalCodeGeneratedComponent,HeaderComponent, ModalHelperComponent],
   imports: [BrowserModule, AppRoutingModule, SocialLoginModule, HttpClientModule,
     MatCardModule, MatFormFieldModule,MatTableModule,MatDialogModule,BrowserAnimationsModule,MatGridListModule,
     MatSnackBarModule,MatSelectModule,MatProgressSpinnerModule,FormsModule, ReactiveFormsModule,MatInputModule,MatIconModule,MatTooltipModule,HighlightModule,ScrollingModule,ClipboardModule,MatCheckboxModule],

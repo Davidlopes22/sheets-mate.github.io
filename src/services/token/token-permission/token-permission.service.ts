@@ -13,7 +13,6 @@ export class TokenPermissionService {
   }
 
   setTokenUserPermission(token: string) {
-    console.log(token);
     window.localStorage.setItem(PERMISSIONKEY, token);
   }
 

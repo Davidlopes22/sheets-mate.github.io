@@ -1,10 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { environment } from '../../environments/environment';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
-import { TokenPermissionService } from 'src/services/token/token-permission/token-permission.service';
-import { UserService } from 'src/services/user/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalHelperComponent } from '../modal-helper/modal-helper.component';
 
 @Component({
   selector: 'app-header',
@@ -12,18 +10,17 @@ import { UserService } from 'src/services/user/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  name: string;
-  public defaultRoute = '';
 
-  constructor(private router:Router, private userSocialService:UserService) {
-    this.name = '';
+  constructor(private dialog: MatDialog, private userSocialService:SocialAuthService) {
   }
 
   callLogout() {
     this.userSocialService.signOut();
   }
 
-
+  callHelper(){
+    const dialogRef = this.dialog.open(ModalHelperComponent);
+  }
   ngOnInit() {}
 
 }

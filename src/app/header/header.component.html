@@ -3,6 +3,9 @@
     <span>SheetsMate</span>
 
   <div class="spacer"></div>
+    <div>    
+      <button (click)="callHelper()"  style="background-color: transparent; border: none;cursor: pointer;"><mat-icon matTooltip="Clique aqui para aprender como usar os endpoints." >help_outline</mat-icon></button>
+      <button mat-menu-item (click)="callLogout()"  style="background-color: transparent; border: none;cursor: pointer;"><mat-icon aria-hidden="false">logout</mat-icon></button>
+    </div>
 
-    <button mat-menu-item (click)="callLogout()" style="background-color: transparent; border: none;cursor: pointer;"><mat-icon aria-hidden="false">logout</mat-icon></button>
 </div>

@@ -78,7 +78,6 @@ export class ModalCodeComponent implements OnInit {
   getColumns(data:any){
     if(this.sheetForm.value.sheetPage){
       const url = this.buildUrl("getColumns",this.sheetForm.value.sheetPage);
-      console.log(url)
       this.loadingColumns = true;
       this.http.get<MessageColumns>(url).subscribe({
         next:(response)=>{
