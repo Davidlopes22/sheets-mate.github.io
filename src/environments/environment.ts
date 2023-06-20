@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  googleAppsScriptBackend: "https://script.google.com/macros/s/AKfycbztW4HapfEyZL3sEReRvJB7PELd3oXeW_kgqgVHnMZqKDRoG2fW13msapm2onaH-e91_A/exec",
+  googleAppsScriptBackend: "https://script.google.com/macros/s/AKfycbxJrzzlL5nc1bcZvZseX6URKy1bDAGzxZ732AFX6_IZPmepxE3kx2Kly2QekcMLmhs7/exec",
   production: false
 
 };
