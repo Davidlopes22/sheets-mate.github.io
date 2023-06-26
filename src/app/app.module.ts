@@ -37,7 +37,9 @@ import { ModalHelperComponent } from './modal-helper/modal-helper.component'
 const googleLoginOptions: GoogleInitOptions = {
   oneTapEnabled: false, // default is true
   scopes: [
-    'https://www.googleapis.com/auth/spreadsheets.readonly'
+    'https://www.googleapis.com/auth/spreadsheets',
+    'https://www.googleapis.com/auth/spreadsheets.readonly',
+    'https://www.googleapis.com/auth/drive.readonly',
   ],
 };
 @NgModule({

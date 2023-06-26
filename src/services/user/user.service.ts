@@ -52,7 +52,6 @@ export class UserService {
       .getAccessToken(GoogleLoginProvider.PROVIDER_ID)
       .then((accessToken) => {
         this.tokenPermissionService.setTokenUserPermission(accessToken);
-        console.log(accessToken);
       });
   }
   isLogged(){
